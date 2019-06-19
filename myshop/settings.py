@@ -25,7 +25,7 @@ SECRET_KEY = '4gk8q%ioh7k_9)=n35+6tq9($wv&rc5*#*k&*bep)2)g94aii8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fadahtech.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
