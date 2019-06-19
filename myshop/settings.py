@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from django.core.exeptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured
+
+
 def get_env_variable(var_name,default_value=None):
 
     try:
