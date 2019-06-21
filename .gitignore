@@ -2,3 +2,18 @@ venv
 *.pyc
 staticfiles
 .env
+
+
+# Other unwanted stuff
+.idea
+.DS_Store
+.DS_STORE
+
+# Database stuff
+*.sqlite3
+migrations/
+db.sqlite3
+
+media_cdn/
+static_cdn/
+products/

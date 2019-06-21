@@ -45,26 +45,61 @@
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist_icon"><img src="{% static 'images/heart.png' %}" alt=""></div>
-								<div class="wishlist_content">
+								<!-- <div class="wishlist_icon"><img src="{% static 'images/heart.png' %}" alt=""></div> -->
+								<!-- <div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
 									<div class="wishlist_count">115</div>
-								</div>
+								</div> -->
 							</div>
 
 							<!-- Cart -->
+
+							 {% with totail_items=cart|length %}
+               				     {% if cart|length > 0 %}
 							<div class="cart">
+
+								<a href="{% url 'panier:panier_detail' %}">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="{% static 'images/cart.png' %}" alt="">
-										<div class="cart_count"><span>10</span></div>
+										<div class="cart_count"><span>{{ totail_items }}</span></div>
 									</div>
 									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price">$85</div>
+										<div class="cart_text"><a href="#">Panier</a></div>
+										<div class="cart_price">{{ cart.get_total_price }} CFA</div>
 									</div>
 								</div>
+
+								</a>
 							</div>
+
+							  {% else %}
+
+							  <div class="cart">
+
+								<a href="{% url 'panier:panier_detail' %}">
+								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon">
+										<img src="{% static 'images/cart.png' %}" alt="">
+										<div class="cart_count"><span>{{ totail_items }}</span></div>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text"><a href="#">Panier</a></div>
+										<div class="cart_price">{{ cart.get_total_price }} CFA</div>
+									</div>
+								</div>
+
+								</a>
+							</div>
+
+							    {% endif %}
+                            {% endwith %}
+
+
+ 
+
+
+
 						</div>
 					</div>
 				</div>
