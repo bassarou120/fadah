@@ -54,9 +54,9 @@ class Product(models.Model):
     remise =  models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    image2 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    image3 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='products/', blank=True)
+    image2 = models.ImageField(upload_to='products/', blank=True)
+    image3 = models.ImageField(upload_to='products/', blank=True)
 
     class Meta:
         ordering = ('name', )
