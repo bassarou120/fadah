@@ -25,48 +25,91 @@
 									<!-- <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li> -->
 
 
-									<li class="hassubs">
-										<a href="#">Elevage<i class="fas fa-chevron-right"></i></a>
-										<ul>
-											<li class="hassubs">
-												<a href="#">Equipement pour poulailler <i class="fas fa-chevron-right"></i></a>
-												<ul>
-													<li><a href="#">Nourrisseurs de 4 à 40 poules<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Abreuvoirs de 2 à 40 poules<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Pondoirs<i class="fas fa-chevron-right"></i></a></li>
-													<!-- <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li> -->
-												</ul>
-											</li>
-
-											<li class="hassubs">
-												<a href="#">Alimentation <i class="fas fa-chevron-right"></i></a>
-												<ul>
-													<li><a href="#">Provende 1er  Age <i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Provende 2eme  Age <i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Provende 3eme  Age <i class="fas fa-chevron-right"></i></a></li>
-													<!-- <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li> -->
-												</ul>
-											</li>
+ 
 
 
-											<!-- <li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li> -->
-										</ul>
-									</li>
+
+										 {% for categorie in categories  %}
 
 
-									<li><a href="#">Electronique<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Electricité<i class="fas fa-chevron-right"></i></a></li>
+										
 
-									<li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-									<!-- <li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
+											 {% if categorie.parent == none  %} 
+
+											  {% with alpha1=categorie.id  tab2="" %}
+
+											 	<li  class="hassubs">
+										        	<a href="{{ categorie.get_absolute_url }}">{{ categorie.name}}  <i class="fas fa-chevron-right"></i></a>
+										        	
+
+
+										        		<ul>
+
+										        		 {% for cat2 in categories  %} 
+
+										        		  
+
+										        		   {% if  cat2.parent.id == alpha1   %} 
+
+										        		   {% with alpha2=cat2.id %}
+
+										        		   <li class="hassubs" >
+										        		   	<a href="{{ cat2.get_absolute_url }}"> 	{{ cat2.name }}   <i class="fas fa-chevron-right"></i></a>
+
+										        		   		<ul>
+
+										        		   			 {% for cat3 in categories  %} 
+
+										        		   			    {% if  cat3.parent.id == alpha2   %} 
+										        		                  <li class="hassubs" >	<a href="{{ cat3.get_absolute_url }}">{{ cat3.name }}<i class="fas fa-chevron-right"></i></a>
+
+										        		                  </li>
+										        		                 {% endif %}
+
+										        		   			  {% endfor%}	
+
+
+										        		   			
+
+										        		   		</ul>
+
+
+
+										        		   </li>
+
+										        		    {% endwith %}  
+										        		    {% endif %}
+
+										        		
+
+										        		  {% endfor%}	
+
+										        		   <!-- <li><a href="#">fd <i class="fas fa-chevron-right"></i></a></li> -->
+										        		  </ul>
+
+
+													   
+    
+
+											    </li>
+
+											  {% endwith %}    
+
+										     {% endif %}
+
 									
-									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li> -->
 
-									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
-								</ul>
+										 {% endfor%}
+
+
+
+
+
+
+
+
+
+
 							</div>
 
 							<!-- Main Nav Menu -->

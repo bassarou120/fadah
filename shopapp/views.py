@@ -14,8 +14,8 @@ def index(request):
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    products = Product.objects.filter(available=True)
-
+    products = Product.objects.filter(available=True,vedette=True)
+  
     cart_product_form = PanierAddProductForm()
 
     if category_slug:
@@ -26,6 +26,7 @@ def product_list(request, category_slug=None):
         'category': category,
         'categories': categories,
         'products': products,
+   
         'cart_product_form': cart_product_form
     }
     return render(request, 'shopapp/product/list.html', context)

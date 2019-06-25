@@ -26,11 +26,21 @@
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
 													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
+
+													 {% for cat3 in categories  %} 
+
+										        	    {% if  cat3.parent.id == none  %} 
+										        		    <li class="clc" >	<a href="{{ cat3.get_absolute_url }}">{{ cat3.name }}<i class="fas fa-chevron-righ"></i></a>
+
+										        		                  </li>
+										        	    {% endif %}
+
+										            {% endfor%}	
+													<!-- <li><a class="clc" href="#">Computers</a></li>
 													<li><a class="clc" href="#">Laptops</a></li>
 													<li><a class="clc" href="#">Cameras</a></li>
 													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
+													<li><a class="clc" href="#">Smartphones</a></li> -->
 												</ul>
 											</div>
 										</div>
